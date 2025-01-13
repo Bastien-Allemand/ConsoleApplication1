@@ -21,9 +21,11 @@ void AMovable::setSpeed(float speed)
 	velocity = speed;
 }
 
-void AMovable::move(float x, float y, float speed)
+Vector2 AMovable::move(float x, float y, float speed)
 {
-	position.setX(x);
-	position.setY(y);
-	velocity = speed;
+	if (position.getX() < x)
+	{
+		position.setX(x);
+	}
+
 }

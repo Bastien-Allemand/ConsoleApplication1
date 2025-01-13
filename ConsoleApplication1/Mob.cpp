@@ -3,7 +3,7 @@
 
 Mob::Mob(float x, float y, float speed, float maxhealth) : AMovable(x, y, speed), Alive(maxhealth), Entity(x, y)
 {
-	std::cout << "Mob just created at x = ici-la-position-x and y = ici-la-position-y with ici-la-maxlife life with direction x = ici-la-direction-x and y = ici-la-direction-y" << std::endl;
+	std::cout << "Mob just created at x = "<<  x << " and y = "<< y << " with "<< maxhealth << " life with direction x = ici-la-direction-x and y = ici-la-direction-y" << std::endl;
 }
 
 void Mob::takeDamage(float damage)

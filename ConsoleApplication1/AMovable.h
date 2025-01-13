@@ -9,6 +9,6 @@ public:
 	virtual void setx(float x);
 	virtual void sety(float y);
 	virtual void setSpeed(float speed);
-	virtual void move(float x, float y,float speed);
+	virtual Vector2 move(float x, float y,float speed);
 };
 
