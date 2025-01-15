@@ -4,14 +4,12 @@ class Entity
 {
 	Vector2 position;
 public:
-	Entity(float x, float y);
+	Entity(Vector2 Position);
 	
 	virtual float getx();
 	
 	virtual float gety();
-	
-	virtual void setx(float x);
 
-	virtual void sety(float y);
+	virtual void setposition(float x, float y);
 };
 

@@ -16,13 +16,8 @@ float Vector2::getY()
 	return my;
 }
 
-void Vector2::setX(float x)
+void Vector2::SetVector2(float x, float y)
 {
 	mx = x;
-}
-
-void Vector2::setY(float y)
-{
 	my = y;
-
 }

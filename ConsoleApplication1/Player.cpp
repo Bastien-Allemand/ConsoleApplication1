@@ -12,7 +12,7 @@ void Player::takeDamage(float damage)
 void Player::move(float x, float y, float speed)
 {
 	AMovable::move(x, y, speed);
-	std::cout << "Player moved to x = ici-la-position-x and y = ici-la-position-y" << std::endl;
+	std::cout << "Player moved to x = "<< x << " and y = " << y << std::endl;
 }
 
 void Player::Attack(Alive* target, float damage)

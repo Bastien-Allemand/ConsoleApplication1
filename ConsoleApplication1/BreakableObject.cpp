@@ -6,7 +6,7 @@ BreakableObject::BreakableObject(float x, float y, float maxhealth) : Entity(x, 
 
 }
 
-void BreakableObject::takeDamage(float damage)
+bool BreakableObject::takeDamage(float damage)
 {	
 	Alive::takeDamage(damage);
 	std::cout << "Breakable Object just broke" << std::endl;

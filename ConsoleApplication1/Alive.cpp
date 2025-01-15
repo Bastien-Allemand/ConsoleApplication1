@@ -2,25 +2,25 @@
 
 Alive::Alive(float maxhealth)
 {
-	mmaxhealth = maxhealth;
-	mhealth = maxhealth;
+	mMaxhealth = maxhealth;
+	mHealth = maxhealth;
 }
 
 float Alive::getMaxHealth()
 {
-	return mmaxhealth;
+	return mMaxhealth;
 }
 
 float Alive::getHealth()
 {
-	return mhealth;
+	return mHealth;
 }
 
 void Alive::takeDamage(float damage)
 {
-	mhealth -= damage;
-	if (mhealth < 0)
+	mHealth -= damage;
+	if (mHealth <= 0)
 	{
-		mhealth = 0;
+		mHealth = 0;
 	}
 }

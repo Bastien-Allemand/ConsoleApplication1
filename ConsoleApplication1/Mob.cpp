@@ -1,9 +1,10 @@
 #include "Mob.h"
 #include <iostream>
 
-Mob::Mob(float x, float y, float speed, float maxhealth) : AMovable(x, y, speed), Alive(maxhealth), Entity(x, y)
+Mob::Mob(Vector2 Position,Vector2 Direction, float speed, float maxhealth) : AMovable(Direction, speed), Alive(maxhealth), Entity(Position)
 {
-	std::cout << "Mob just created at x = "<<  x << " and y = "<< y << " with "<< maxhealth << " life with direction x = ici-la-direction-x and y = ici-la-direction-y" << std::endl;
+	std::cout << "Mob just created at x = "<<  Position.getX() << " and y = "<< Position.getY() << " with "<< maxhealth <<
+		" life with direction x = " << Direction.getX() << " and y = " << Direction.getY() << std::endl;
 }
 
 void Mob::takeDamage(float damage)
@@ -13,8 +14,9 @@ void Mob::takeDamage(float damage)
 
 }
 
-void Mob::move(float x, float y, float speed)
+void Mob::Move()
 {
-	AMovable::move(x, y, speed);
-	std::cout << "Mob move to x = ici-la-position-x and y = ici-la-position-y" << std::endl;
+	AMovable::Move();
+	
+	std::cout << "Mob move to x = "<<  << " and y = " << y << std::endl;
 }

@@ -2,13 +2,12 @@
 #include "Vector2.h"
 class AMovable
 {
-	Vector2 position;
-	float velocity;
+	Vector2 mDirection;
+	float mSpeed;
 public:
-	AMovable(float x, float y,float speed);
-	virtual void setx(float x);
-	virtual void sety(float y);
-	virtual void setSpeed(float speed);
-	virtual Vector2 move(float x, float y,float speed);
+	AMovable(Vector2 Direction, float Speed);
+	virtual void SetDirection(Vector2 Direction);
+	virtual void SetSpeed(float Speed);
+	virtual void Move() = 0;
 };
 

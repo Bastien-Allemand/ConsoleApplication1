@@ -1,31 +1,15 @@
 #include "AMovable.h"
 
-AMovable::AMovable(float x, float y, float speed) : position(x, y)
+AMovable::AMovable(Vector2 Direction, float Speed) : mDirection(Direction), mSpeed(Speed)
 {
-	velocity = speed;
 }
 
-void AMovable::setx(float x)
+void AMovable::SetDirection(Vector2 Direction)
 {
-	position.setX(x);
+	mDirection = Direction;
 }
 
-void AMovable::sety(float y)
+void AMovable::SetSpeed(float Speed)
 {
-	position.setY(y);
-
-}
-
-void AMovable::setSpeed(float speed)
-{
-	velocity = speed;
-}
-
-Vector2 AMovable::move(float x, float y, float speed)
-{
-	if (position.getX() < x)
-	{
-		position.setX(x);
-	}
-
+	mSpeed = Speed;
 }

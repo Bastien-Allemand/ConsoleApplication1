@@ -1,6 +1,8 @@
 #include "Entity.h"
 #include "Vector2.h"
-Entity::Entity(float x, float y) : position(x,y){}
+Entity::Entity(Vector2 Position) : position(Position)
+{
+}
 float Entity::getx()
 {
 	return position.getX();
@@ -11,12 +13,7 @@ float Entity::gety()
 	return position.getY();
 }
 
-void Entity::setx(float x)
+void Entity::setposition(float x, float y)
 {
-	position.setX(x);
-}
-
-void Entity::sety(float y)
-{
-	position.setY(y);
+	position.SetVector2(x, y);
 }
