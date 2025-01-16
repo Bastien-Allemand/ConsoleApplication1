@@ -5,6 +5,9 @@
 #include "Mob.h"
 #include "Player.h"
 #include "BreakableObject.h"
+#include "Vector2.h"
+#include "Alive.h"
+#include "AMovable.h"
 class World : public Entity
 {
 	std::vector<Entity*> entities;

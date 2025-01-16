@@ -1,12 +1,12 @@
 #include "BreakableObject.h"
 #include <iostream>
-BreakableObject::BreakableObject(float x, float y, float maxhealth) : Entity(x, y), Alive(maxhealth)
+BreakableObject::BreakableObject(Vector2 Position, float maxhealth) : Entity(Position), Alive(maxhealth)
 {
-	std::cout << "Breakable Object just created at x = " << x << "and y = " << y <<  "with" << maxhealth << std::endl;
+	std::cout << "Breakable Object just created at x = " << Position.getX() << "and y = " << Position.getY() <<  "with" << maxhealth << std::endl;
 
 }
 
-bool BreakableObject::takeDamage(float damage)
+void BreakableObject::takeDamage(float damage)
 {	
 	Alive::takeDamage(damage);
 	std::cout << "Breakable Object just broke" << std::endl;
