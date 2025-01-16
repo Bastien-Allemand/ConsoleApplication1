@@ -17,6 +17,8 @@ void Mob::takeDamage(float damage)
 void Mob::Move()
 {
 	AMovable::Move();
-	
-	std::cout << "Mob move to x = "<<  << " and y = " << y << std::endl;
+	mPosition.SetVector2(mPosition.getX() + mDirection.getX() * mSpeed, mPosition.getY() + mDirection.getY() * mSpeed);
+
+
+	std::cout << "Mob move to x = "<< mDirection.getX() << " and y = " << mDirection.getY() << std::endl;
 }

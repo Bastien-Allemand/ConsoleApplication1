@@ -1,19 +1,19 @@
 #include "Entity.h"
 #include "Vector2.h"
-Entity::Entity(Vector2 Position) : position(Position)
+Entity::Entity(Vector2 Position) : mPosition(Position)
 {
 }
 float Entity::getx()
 {
-	return position.getX();
+	return mPosition.getX();
 }
 
 float Entity::gety()
 {
-	return position.getY();
+	return mPosition.getY();
 }
 
 void Entity::setposition(float x, float y)
 {
-	position.SetVector2(x, y);
+	mPosition.SetVector2(x, y);
 }

@@ -3,6 +3,6 @@
 class StaticObject : public Entity
 {
 public:
-	StaticObject(float x, float y);
+	StaticObject(Vector2 Position);
 };
 

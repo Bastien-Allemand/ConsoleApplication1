@@ -1,7 +1,11 @@
 #include "Player.h"
 #include <iostream>
-Player::Player(float x, float y, float speed, float maxhealth) :Entity(x, y), Alive(maxhealth), AMovable(x,y,speed)
-{}
+Player::Player(Vector2 Position,Vector2 Direction, float speed, float maxhealth) : 
+	Entity(Position), Alive(maxhealth), AMovable(Direction, speed)
+{
+	std::cout << "Player just created at x = " << Position.getX() << " and y = " << Position.getY() << " with " << maxhealth <<
+		" life with direction x = " << Direction.getX() << " and y = " << Direction.getY() << std::endl;
+}
 
 void Player::takeDamage(float damage)
 {
@@ -9,13 +13,14 @@ void Player::takeDamage(float damage)
 	std::cout << "“Player just died”" << std::endl;
 }
 
-void Player::move(float x, float y, float speed)
+void Player::Move()
 {
-	AMovable::move(x, y, speed);
-	std::cout << "Player moved to x = "<< x << " and y = " << y << std::endl;
+	AMovable::Move();
+	mPosition.SetVector2(mPosition.getX() + mDirection.getX() * mSpeed, mPosition.getY() + mDirection.getY() * mSpeed);
+	std::cout << "Player moved to x = "<< mPosition.getX() << " and y = " << mPosition.getY() << std::endl;
 }
 
-void Player::Attack(Alive* target, float damage)
+void Player::Attack(Alive* target)
 {
 	target->takeDamage(10);
 	std::cout << "Player just attacked" << std::endl;

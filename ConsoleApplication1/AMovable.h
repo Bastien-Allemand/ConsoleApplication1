@@ -2,6 +2,7 @@
 #include "Vector2.h"
 class AMovable
 {
+protected:
 	Vector2 mDirection;
 	float mSpeed;
 public:

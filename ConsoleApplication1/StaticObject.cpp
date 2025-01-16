@@ -1,7 +1,7 @@
 #include "StaticObject.h"
 #include <iostream>
-StaticObject::StaticObject(float x, float y) : Entity(x, y)
+StaticObject::StaticObject(Vector2 Position) : Entity(Position)
 {
-	setposition(x, y);
-	std::cout << "Static Object just created at x = " << x << " and y = " << y << std::endl;
+
+	std::cout << "Static Object just created at x = " << Position.getX() << " and y = " << Position.getY() << std::endl;
 }

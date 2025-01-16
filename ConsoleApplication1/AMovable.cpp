@@ -2,6 +2,7 @@
 
 AMovable::AMovable(Vector2 Direction, float Speed) : mDirection(Direction), mSpeed(Speed)
 {
+
 }
 
 void AMovable::SetDirection(Vector2 Direction)

@@ -2,7 +2,8 @@
 #include "Vector2.h"
 class Entity
 {
-	Vector2 position;
+protected:
+	Vector2 mPosition;
 public:
 	Entity(Vector2 Position);
 	

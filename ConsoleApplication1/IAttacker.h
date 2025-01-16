@@ -1,8 +1,8 @@
 #pragma once
 #include "Alive.h"
-class IAttacker : public Alive
+class IAttacker
 {
 public:
-	virtual void Attack(Alive* target, float damage) = 0;
+	virtual void Attack(Alive* target) = 0;
 };
 
