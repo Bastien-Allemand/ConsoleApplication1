@@ -13,7 +13,7 @@ class World : public Entity
 	std::vector<Entity*> entities;
 public:
 	void Init();
-	void Step();
+	bool Step();
 
 };
 

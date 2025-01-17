@@ -1,5 +1,5 @@
 #include "World.h"
-
+#include "iostream"
 void World::Init()
 {
 	Vector2 PPosition(0, 0);
@@ -20,38 +20,81 @@ void World::Init()
 	entities.push_back(&Player);
 }
 
-void World::Step()
+bool World::Step()
 {
+    std::vector<Mob*> mobs;
+    std::vector<Player*> players;
+    std::vector<BreakableObject*> bos;
 
-	for (Entity* entity : entities)
-	{
-		float x = 0;
-		float y = 0;
-		float xp = 0;
-		float yp = 0;
-		bool directionset = false;
-		bool mobcoordset = false;
-		if (dynamic_cast<BreakableObject*>(entity))
-		{
-			x = dynamic_cast<BreakableObject*>(entity)->getx();
-			y = dynamic_cast<BreakableObject*>(entity)->gety();
-			directionset = true;
-		}
-		if (directionset == true)
-		{
-			dynamic_cast<Mob*>(entity)->SetDirection(Vector2(x,y));
-			dynamic_cast<Mob*>(entity)->Move();
-			dynamic_cast
-			xp = dynamic_cast<Mob*>(entity)->getx();
-			yp = dynamic_cast<Mob*>(entity)->gety();
-			mobcoordset = true;
-		}
-		if (mobcoordset)
-		{
-			dynamic_cast<Player*>(entity)->SetDirection(Vector2(xp, yp));
-			dynamic_cast<Player*>(entity)->Move();
-			dynamic_cast<Player*>(entity)->Attack(dynamic_cast<Mob*>(entity));
-			mobcoordset = false;
-		}
-	}
+
+    for (Entity* entity : entities) {
+        if (Mob* m = dynamic_cast<Mob*>(entity)) {
+            mobs.push_back(m);
+        }
+        if (Player* p = dynamic_cast<Player*>(entity)) {
+            players.push_back(p);
+        }
+        if (BreakableObject* b = dynamic_cast<BreakableObject*>(entity)) {
+            bos.push_back(b);
+        }
+
+    }
+
+    bool finish = true;
+
+    for (Mob* m : mobs) {
+        if (m->getHealth() > 0) {
+            finish = false;
+            for (BreakableObject* b : bos) {
+                if (b->getHealth() > 0) {
+                    m->SetDirection(Vector2(b->getx() - m->getx(),b->gety() - m->gety()));
+                    m->Move();
+                    break;
+                }
+            }
+        }
+    }
+    for (Player* p : players)
+    {
+        if (finish == false) 
+        {
+            for (Mob* m : mobs)
+            {
+                if (m->getHealth() > 0) 
+                {
+                    p->SetDirection(Vector2(m->getx() - p->getx(),m->gety()- p->gety()));
+                    p->Move();
+                    float d = (m->getx() - p->getx());
+                    if (d <= 1.f) {
+                        p->Attack(m);
+                    }
+                    break;
+                }
+            }
+        }
+        else {
+            for (BreakableObject* b : bos) {
+                if (b->getHealth() > 0) {
+                    p->SetDirection(Vector2(b->getx() - p->getx(),b->gety() - p->gety()));
+                    p->Move();
+                    float d = (b->getx() - p->getx());
+                    if (d <= 1.f) {
+                        p->Attack(b);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    for (BreakableObject* b : bos) {
+        if (b->getHealth() > 0) {
+            finish = false;
+        }
+    }
+
+    if (finish) {
+        std::cout << "Simulation Finished" << std::endl;
+    }
+
+    return finish;
 }
